@@ -93,18 +93,21 @@ describe('Deletion a new blog', () => {
   })
 })
 
-describe('Update of a sigle blog', () => {
+describe('Update of a single blog', () => {
   test('succeeds', async () => {
     const response = await api.get('/api/blogs')
+    response.body[0].likes = 444444
+
     await api
-      .put(`/api/blogs/${response.body[0]._id}`)
+      .put(`/api/blogs/`)
+      .send(response.body[0])
       .expect(200)
 
   })
   test('fails', async () => {
     await api
       .put(`/api/blogs/${1234}`)
-      .expect(500)
+      .expect(404)
   })
 })
 
