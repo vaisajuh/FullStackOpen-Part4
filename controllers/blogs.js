@@ -25,7 +25,7 @@ blogsRouter.delete('/:id', async (request, response) => {
 })
 
 blogsRouter.put('/', async (request, response) => {
-  console.log(request)
+  console.log(request.body)
   const result = await Blog.findOneAndUpdate({ _id:request.body._id }, { $set: { likes:request.body.likes } }, { runValidators: true })
   response.status(200).json(result)
 })

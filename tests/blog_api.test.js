@@ -105,9 +105,11 @@ describe('Update of a single blog', () => {
 
   })
   test('fails', async () => {
+    const testObject = { '_id': '42134213' }
     await api
-      .put(`/api/blogs/${1234}`)
-      .expect(404)
+      .put(`/api/blogs/`)
+      .send(testObject)
+      .expect(500)
   })
 })
 
