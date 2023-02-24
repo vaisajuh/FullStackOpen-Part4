@@ -1,8 +1,4 @@
-const { blogs } = require("./blogs")
-
-const dummy = (blogs) => {
-    return 1
-  }
+const dummy = () => 1
 
 const totalLikes = (blogs) => {
   return blogs.reduce(function(sum, likes) {
@@ -12,8 +8,8 @@ const totalLikes = (blogs) => {
 }
 
 const favoriteBlog = (blogs) => {
-  var max = 0
-  for (var i = 0; i < blogs.length; i++) {
+  let max = 0
+  for (let i = 0; i < blogs.length; i++) {
     if (blogs[i].likes > max) {
       max = blogs[i].likes
     }
@@ -29,18 +25,18 @@ const mostLikes = (blogs) => {
 }
 
 const helperFunction = (blogs, n) => {
-  var name = ''
-  var max = 0
-  for (var i = 0; i < blogs.length; i++) {
-    var temp = 0
-    for (var j = i; j < blogs.length; j++) {
+  let name = ''
+  let max = 0
+  for (let i = 0; i < blogs.length; i++) {
+    let temp = 0
+    for (let j = i; j < blogs.length; j++) {
       if (blogs[i].author === blogs[j].author) {
-        if (n == 1) {
+        if (n === 1) {
           temp += blogs[j].likes
         } else {
           temp += 1
         }
-      } 
+      }
     }
     if (temp > max) {
       max = temp
@@ -48,13 +44,13 @@ const helperFunction = (blogs, n) => {
     }
     temp = 0
   }
-  return ({"name": name, "max": max})
+  return ({ "name": name, "max": max })
 }
-  
+
 module.exports = {
-    dummy,
-    totalLikes,
-    favoriteBlog,
-    mostBlogs,
-    mostLikes
-  }
+  dummy,
+  totalLikes,
+  favoriteBlog,
+  mostBlogs,
+  mostLikes
+}

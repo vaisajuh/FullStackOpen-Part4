@@ -9,7 +9,7 @@ test('dummy returns one', () => {
 })
 
 describe('total likes', () => {
-  
+
   test('of a bigger list is calculated right', () => {
     const result = listHelper.totalLikes(testBlogs.blogs)
     expect(result).toBe(36)
