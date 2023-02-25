@@ -99,7 +99,7 @@ describe('Update of a single blog', () => {
     response.body[0].likes = 444444
 
     await api
-      .put(`/api/blogs/`)
+      .put(`/api/blogs/${response.body[0]._id}`)
       .send(response.body[0])
       .expect(200)
 
@@ -109,7 +109,7 @@ describe('Update of a single blog', () => {
     await api
       .put(`/api/blogs/`)
       .send(testObject)
-      .expect(500)
+      .expect(404)
   })
 })
 
