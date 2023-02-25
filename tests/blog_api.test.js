@@ -48,7 +48,7 @@ describe('Addition of a new blog', () => {
     )
   })
 
-  test('fails when likes is empty', async () => {
+  test('returns 0 likes when likes is empty', async () => {
     const newBlog = {
       "title": "muu",
       "author": "maa",
