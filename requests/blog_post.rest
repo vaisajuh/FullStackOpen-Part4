@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+
+{
+    "title": "jees",
+    "author": "jees-mies",
+    "url": "http://www.jees.fi",
+    "likes": 4,
+    "user" : "63fce7776c746bd142e5f5ba"
+}

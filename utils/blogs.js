@@ -37,7 +37,7 @@ const blogs = [
     title: "TDD harms architecture",
     author: "Robert C. Martin",
     url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
-    likes: 0,
+    likes: 10,
     __v: 0
   },
   {
