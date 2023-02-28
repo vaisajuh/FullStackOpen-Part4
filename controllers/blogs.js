@@ -48,14 +48,11 @@ blogsRouter.put('/:id', async (request, response) => {
   const requestedBlog = await Blog.findById(request.params.id)
   const decodedToken = request.query
 
-  console.log(request.body)
-
   if (decodedToken.id !== requestedBlog.user.toString()) {
     return response.status(400).end()
   }
 
   const result = await Blog.findOneAndUpdate({ _id:request.body._doc._id }, { $set: { likes:request.body._doc.likes } }, { runValidators: true })
-  console.log(result)
   return response.status(200).json(result)
 })
 
