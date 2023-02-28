@@ -19,7 +19,6 @@ describe('when there is initially some notes saved', () => {
     await Promise.all(promiseArray)
     user[0].blogs = blogObjects
     user[0].save()
-
   })
 
   test('blog-list has correct length', async () => {
@@ -36,7 +35,6 @@ describe('when there is initially some notes saved', () => {
 describe('Addition of a new blog', () => {
 
   let user = null
-
   const existingUser = {
     "username": "jennifer",
     "name": "jennifer1234",
@@ -44,7 +42,6 @@ describe('Addition of a new blog', () => {
   }
 
   let newBlog = null
-
   let login = ''
 
   test('succeeds with valid data', async () => {
@@ -84,9 +81,7 @@ describe('Addition of a new blog', () => {
       .post('/api/blogs')
       .send(newBlog)
       .expect(401)
-
   })
-
 
   test('returns 0 likes when likes is empty', async () => {
     const user = await User.find()
@@ -121,7 +116,6 @@ describe('Addition of a new blog', () => {
       .send(newBlog)
       .set('Authorization', `Bearer ${login._body.token}`)
       .expect(400)
-
   })
 })
 
@@ -134,7 +128,6 @@ describe('Deletion of a new blog', () => {
 
   test('succeeds with a valid id', async () => {
     user = await User.find()
-
     let existingUser = {
       "username": user[0].username,
       "name": user[0].name,
@@ -155,7 +148,6 @@ describe('Deletion of a new blog', () => {
   })
 
   test('fails with an invalid id', async () => {
-
     await api
       .delete(`/api/blogs/${userTwoBlogs[0].id}`)
       .set('Authorization', `Bearer ${login._body.token}`)
@@ -167,8 +159,6 @@ describe('Update of a single blog', () => {
 
   test('succeeds with a valid id', async () => {
     userOneBlogs[1].likes = 444444
-
-   
 
     await api
       .put(`/api/blogs/${userOneBlogs[1].id}`)
